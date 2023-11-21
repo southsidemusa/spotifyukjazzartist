@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %} All repos {% endblock %}
+
+{% block content %}
+  All repos:
+  {% for repo in top_repos %}
+    {{ repo.name }}
+  {% endfor %}
+{% endblock %}

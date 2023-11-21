@@ -1,0 +1,24 @@
+<!-- table.html -->
+{% extends "base.html" %}
+{% block title %}Jazz Table{% endblock %}
+{% block content %}
+    <h1>Jazz Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Track</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in jazz_data %}
+                <tr>
+                    <td>{{ item.artist }}</td>
+                    <td>{{ item.album }}</td>
+                    <td>{{ item.track }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

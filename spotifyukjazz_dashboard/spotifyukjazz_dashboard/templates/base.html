@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/static/images/kickstart_coding_logo.5980794a2119.png" />
+            GitHub Stats
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                ☰
+            </span>
+        </button>
+    </div>
+</nav>
+
+<div class="container">
+     {% block content %}
+     {% endblock content %}
+</div>
+
+<footer>
+    Johnny's Dashboard 
+</footer>
+
+{% extends "base.html" %}
+
+{% block title %}
+    Jazz Table
+{% endblock %}
+
+{% block content %}
+    Jazz Table
+    <table>
+        <thead>
+            <tr>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Track</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in jazz_data %}
+            <tr>
+                <td>{{ item.artist }}</td>
+                <td>{{ item.album }}</td>
+                <td>{{ item.track }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% extends "base.html" %}
+
+{% block title %}
+    Jazz Chart
+{% endblock %}
+
+{% block content %}
+    Jazz Chart
+    {{ rendered_chart_svg|safe }}
+{% endblock %}
+
+</body>
+</html>
